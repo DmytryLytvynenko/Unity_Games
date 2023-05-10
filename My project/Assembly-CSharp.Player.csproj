@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Scripts\ButtonCooldown.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\ChasingEnemyController.cs" />
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
@@ -69,6 +70,8 @@
     <Compile Include="Assets\Scripts\PlatformSpawn.cs" />
     <Compile Include="Assets\Scripts\RotatingWall.cs" />
     <Compile Include="Assets\Scripts\ShootingEnemyController.cs" />
+    <Compile Include="Assets\Scripts\VisualizeBox.cs" />
+    <Compile Include="Assets\Scripts\runningEnemyController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -9,15 +9,13 @@ public class ShootingEnemyController : MonoBehaviour
     private float temporaryMoveSpeed;
     public float maxSpeed;
     public float rotationSpeed;
-    public float timeToLive;
     public float shootDistnace;
     public float xShootAngle;
     public float shootCooldown;
     private float timer = 0;
     [SerializeField] float Y; 
 
-    // Components
-
+    //links
     private Transform target;
     private Rigidbody rb;
     private Transform ShootPos; // откуда стреляем
@@ -35,7 +33,6 @@ public class ShootingEnemyController : MonoBehaviour
     void Start()
     {
         bullet = Resources.Load<GameObject>("Prefabs/Bullet");
-        Invoke("Die", timeToLive);
         rb = GetComponent<Rigidbody>();
         target = GameObject.Find("Hero").GetComponent<Transform>();
         ShootPos = this.gameObject.transform.GetChild(0);
@@ -62,10 +59,6 @@ public class ShootingEnemyController : MonoBehaviour
         {
             rb.AddForce(transform.forward * moveSpeed, ForceMode.Impulse);//метод передвижения 
         }
-    }
-    private void Die()
-    {
-        Destroy(this.gameObject);
     }
     private void ControllDistance()
     {

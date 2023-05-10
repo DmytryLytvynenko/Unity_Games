@@ -7,6 +7,7 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Image healthBarFilling;
     [SerializeField] private HealthControll Health;
+    [SerializeField] private Gradient gradient;
 
     private Camera camera;
 
@@ -15,6 +16,7 @@ public class HealthBar : MonoBehaviour
     {
         Health.HealthChanged += OnHealthChanged;
         camera = Camera.main;
+        healthBarFilling.color = gradient.Evaluate(1);
     }
     private void OnDestroy()
     {
@@ -25,6 +27,7 @@ public class HealthBar : MonoBehaviour
     private void OnHealthChanged(float valueAsPercentage)
     {
         healthBarFilling.fillAmount = valueAsPercentage;
+        healthBarFilling.color = gradient.Evaluate(valueAsPercentage);
     }
     private void LateUpdate()
     {

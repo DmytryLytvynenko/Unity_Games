@@ -24,7 +24,7 @@ public class HealthControll : MonoBehaviour
         }
     }
 
-    private void ChangeHealth(int value)
+    public void ChangeHealth(int value)
     {
         currentHelth += value;
 
@@ -45,12 +45,4 @@ public class HealthControll : MonoBehaviour
 
         Destroy(this.gameObject);
     }
-/*    public void GetDamage(float damage)
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            Die();
-        }
-    }*/
 }

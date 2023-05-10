@@ -6,19 +6,24 @@ public class Bullet : MonoBehaviour
 {
     public Transform targetPoint;
     private Rigidbody bullet;
+	private GameObject pointer;
+	private GameObject _pointer;
 
-    public float jumpHeight = 7;
+
+	public float jumpHeight = 7;
 	public float gravity = -9.81f;
 	public bool debugPath;
-	
-	void Start()
+
+	private void Start()
 	{
+		pointer = Resources.Load<GameObject>("Prefabs/Pointer");
 		bullet = GetComponent<Rigidbody>();
 		bullet.useGravity = false;
+		DrawPointer();
 		Launch();
 	}
 
-	void Launch()
+	private void Launch()
 	{
 		bullet.useGravity = true;
 		bullet.velocity = CalculateLaunchData().initialVelocity;
@@ -42,7 +47,7 @@ public class Bullet : MonoBehaviour
 
 		return new LaunchData(velocityXZ + velocityY * -Mathf.Sign(gravity), time);
 	}
-	void DrawPath()
+	private void DrawPath()
 	{
 		LaunchData launchData = CalculateLaunchData();
 		Vector3 previousDrawPoint = bullet.position;
@@ -53,9 +58,18 @@ public class Bullet : MonoBehaviour
 			float simulationTime = i / (float)resolution * launchData.timeToTarget;
 			Vector3 displacement = launchData.initialVelocity * simulationTime + Vector3.up * gravity * simulationTime * simulationTime / 2f;
 			Vector3 drawPoint = bullet.position + displacement;
+
 			Debug.DrawLine(previousDrawPoint, drawPoint, Color.green);
 			previousDrawPoint = drawPoint;
 		}
+	}
+	private void DrawPointer()
+    {
+		Ray ray = new Ray(targetPoint.position, -Vector3.up*10);
+		RaycastHit hit;
+		Physics.Raycast(ray, out hit);
+		Vector3 drawPoint = hit.point;
+		_pointer = Instantiate(pointer, drawPoint, Quaternion.identity);
 	}
 	struct LaunchData
 	{
@@ -72,6 +86,7 @@ public class Bullet : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
     {
+        Destroy(_pointer);
         Destroy(this.gameObject);
     }
 }
