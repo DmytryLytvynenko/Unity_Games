@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Joystick
   - Ground
+  - Boss
+  - Bullet
+  - Enemy
+  - Bomb
   layers:
   - Default
   - TransparentFX
