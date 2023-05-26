@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
 	private GameObject pointer;
 	private GameObject _pointer;
 	[SerializeField] private int damage;
+	[SerializeField] private int damageMultiplier;//если пуля ударит врага, его здоровье уменьшиться так же сильно, как и у игрока
 
 	// Shoot characteristics
 	public float jumpHeight = 7;
@@ -94,6 +95,10 @@ public class Bullet : MonoBehaviour
 		}
 		else
 		{
+            if (!collision.gameObject.CompareTag("Player"))
+            {
+				damage *= damageMultiplier;
+			}
 			collision.gameObject.GetComponent<HealthControll>().ChangeHealth(-damage);
 		}
 	}

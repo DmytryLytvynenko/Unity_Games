@@ -163,12 +163,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e787d8971e254d49a7c81cc54e50566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  maxSpeed: 1.5
+  moveSpeed: 2
+  maxSpeed: 2.5
   rotationSpeed: 5
   shootDistnace: 6
   xShootAngle: -45
-  shootCooldown: 3
+  shootCooldown: 1.5
   damage: 4
   bullet: {fileID: 6997241007162612521, guid: 8379717eded0ad749b0b7d945065fe1e, type: 3}
 --- !u!114 &228993800423009944

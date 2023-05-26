@@ -5,26 +5,24 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     //Область в которой спавнятся враги: квадрат Х1, Х2, Z1, Z2
-    public float X1;
-    public float X2;
-    public float Z1;
-    public float Z2;
+    [SerializeField] private float X1;
+    [SerializeField] private float X2;
+    [SerializeField] private float Z1;
+    [SerializeField] private float Z2;
 
     //окружность на которой спавнятся враги: круг с центром spawnAreaCenter и радиусом spawnAreaRadius
-    public Transform spawnAreaCenter;// центр окружности на которой спавнятся враги 
-    public float spawnAreaRadius;// радиус окружности на которой спавнятся враги 
-    public float spawnHeight;// высота на которой спавнится враг
+    [SerializeField] private Transform spawnAreaCenter;// центр окружности на которой спавнятся враги 
+    [SerializeField] private float spawnAreaRadius;// радиус окружности на которой спавнятся враги 
+    [SerializeField] private float spawnHeight;// высота на которой спавнится враг
 
 
-    public GameObject enemy1;// Кого спавним
-    public GameObject enemy2;// Кого спавним
-    public GameObject enemy3;// Кого спавним
+    public GameObject[] enemies;// Кого спавним
     private GameObject enemy;
-    public Transform player;// Чтобы не спавнились на голову игроку
-    public float playerRadius;
+    [SerializeField] private Transform player;// Чтобы не спавнились на голову игроку
+    [SerializeField] private float playerRadius;
 
     public float spawnSpeed;
-    public float pushForce;// сила толчка врага при создании
+    [SerializeField] private float pushForce;// сила толчка врага при создании
     private float timer;
 
     void Update()
@@ -77,20 +75,12 @@ public class EnemySpawn : MonoBehaviour
     }
     private void ChooseEnemy()
     {
-        int enemyNumber = Random.Range(1, 4);
-        switch (enemyNumber)
-        {
-            case (1):
-                enemy = enemy1;
-                break;
-            case (2):
-                enemy = enemy2;
-                break;
-            case (3):
-                enemy = enemy3;
-                break;
-            default:
-                break;
-        }
+        int enemyNumber = Random.Range(0, enemies.Length - 1);
+        enemy = enemies[enemyNumber];
+    }
+    private void SpawnBoss()
+    {
+        Vector3 position = new Vector3(0f, 10f, 5f);
+        Instantiate(enemies[enemies.Length - 1], position, Quaternion.identity);
     }
 }

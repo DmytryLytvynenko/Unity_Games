@@ -44,8 +44,7 @@ public class HealthControll : MonoBehaviour
         HealthChanged?.Invoke(0);
         if (this.gameObject.CompareTag("Player"))
         {
-            this.gameObject.SetActive(false);
-            this.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            gameObject.GetComponent<HeroController>().Die();
         }
         else
         {

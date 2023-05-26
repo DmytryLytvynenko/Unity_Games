@@ -8,8 +8,11 @@ public class ObjectSpawn : MonoBehaviour
     private GameObject spawnObject;
 
     [SerializeField] private float spawnSpeed;
-    private float timer;
-
+    [SerializeField] private float timer;
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
     void Update()
     {
         if (timer >= spawnSpeed)

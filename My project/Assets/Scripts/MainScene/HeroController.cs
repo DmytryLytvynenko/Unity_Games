@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeroController : MonoBehaviour
 {
@@ -178,10 +179,20 @@ public class HeroController : MonoBehaviour
     {
 
     }
-    private void OnDisable()
+    public void Die()
     {
+        GameObject.Find("JumpButton").GetComponent<Button>().interactable = false;
+        GameObject.Find("ThrowButton").GetComponent<Button>().interactable = false;
+        GameObject.Find("ExplosionButton").GetComponent<Button>().interactable = false;
         LoseScreen.SetActive(true);
-/*        Transform defaultPos = GameObject.Find("DefaultCameraPosition").transform;
-        GameObject.Find("CamController").GetComponent<CameraController>().playerTransform = defaultPos;*/
+        Time.timeScale = 0;
+    }
+    public void Win()
+    {
+        GameObject.Find("JumpButton").GetComponent<Button>().interactable = false;
+        GameObject.Find("ThrowButton").GetComponent<Button>().interactable = false;
+        GameObject.Find("ExplosionButton").GetComponent<Button>().interactable = false;
+        gameObject.GetComponent<HeroController>().enabled = false;
+        Time.timeScale = 0;
     }
 }

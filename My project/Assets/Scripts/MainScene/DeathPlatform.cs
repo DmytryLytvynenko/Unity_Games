@@ -8,8 +8,7 @@ public class DeathPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.SetActive(false);
-            collision.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            collision.gameObject.GetComponent<HeroController>().Die();
         }
         else
         {

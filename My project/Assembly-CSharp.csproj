@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\MainScene\Scenario.cs" />
     <Compile Include="Assets\Scripts\MenuScene\HeroRotating.cs" />
     <Compile Include="Assets\Scripts\MainScene\ActivateEnemy.cs" />
     <Compile Include="Assets\Scripts\MainScene\VisualizeBox.cs" />
@@ -72,15 +73,16 @@
     <Compile Include="Assets\Scripts\MainScene\BombSpawn.cs" />
     <Compile Include="Assets\Scripts\MainScene\runningEnemyController.cs" />
     <Compile Include="Assets\Scripts\MainScene\EnemySpawn.cs" />
+    <Compile Include="Assets\Scripts\MenuScene\FallingObject.cs" />
     <Compile Include="Assets\Scripts\MainScene\PlatformController.cs" />
     <Compile Include="Assets\Scripts\MainScene\Bomb.cs" />
+    <Compile Include="Assets\Scripts\MainScene\PauseGame.cs" />
     <Compile Include="Assets\Scripts\MainScene\RotatingWall.cs" />
     <Compile Include="Assets\Scripts\MainScene\CameraController.cs" />
     <Compile Include="Assets\Scripts\Scenes.cs" />
     <Compile Include="Assets\Scripts\MainScene\ChasingEnemyController.cs" />
     <Compile Include="Assets\Scripts\MainScene\EnemyBigBoss.cs" />
     <Compile Include="Assets\Scripts\MenuScene\ObjectSpawn.cs" />
-    <Compile Include="Assets\Scripts\MenuScene\FallingObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

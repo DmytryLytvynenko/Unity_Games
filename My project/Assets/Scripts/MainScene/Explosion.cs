@@ -16,25 +16,34 @@ public class Explosion : MonoBehaviour
         for (int i = 0; i < overlappedColiders.Length; i++)
         {
             Rigidbody rigitbody = overlappedColiders[i].attachedRigidbody;
-            if (rigitbody && !overlappedColiders[i].gameObject.CompareTag("Player"))
+            if (rigitbody == null)
             {
-                Vector3 distanceToTarget = new Vector3(transform.position.x - rigitbody.transform.position.x, transform.position.y - rigitbody.transform.position.y, transform.position.z - rigitbody.transform.position.z);
-                int damage =Convert.ToInt32(((explosionRadius - distanceToTarget.magnitude) / explosionRadius) * explosionDamage);// Чем ближе к игроку протимник тем больше damage
-                if (rigitbody.gameObject.CompareTag("Bomb") && damage >= (explosionDamage/2))
-                {
-                    rigitbody.gameObject.GetComponent<Bomb>().SetActive(true);
-                }
-                rigitbody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
-                if (!rigitbody.gameObject.GetComponent<HealthControll>())
-                {
-                    continue;
-                }
-                else
-                {
-                    rigitbody.GetComponent<HealthControll>().ChangeHealth(-damage);
-                }
-                print($"Explosion Damage:{damage}");
+                continue;
             }
+            if (rigitbody.CompareTag("Bullet"))
+            {
+                continue;
+            }
+            if (rigitbody.CompareTag("Player"))
+            {
+                continue;
+            }
+            Vector3 distanceToTarget = new Vector3(transform.position.x - rigitbody.transform.position.x, transform.position.y - rigitbody.transform.position.y, transform.position.z - rigitbody.transform.position.z);
+            int damage =Convert.ToInt32(((explosionRadius - distanceToTarget.magnitude) / explosionRadius) * explosionDamage);// Чем ближе к игроку протимник тем больше damage
+            if (rigitbody.gameObject.CompareTag("Bomb") && damage >= (explosionDamage/2))// Активируем бомбу если она задета взрывом достаточно сильно
+            {
+                rigitbody.gameObject.GetComponent<Bomb>().SetActive(true);
+            }
+            rigitbody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+            if (!rigitbody.gameObject.GetComponent<HealthControll>())
+            {
+                continue;
+            }
+            else
+            {
+                rigitbody.GetComponent<HealthControll>().ChangeHealth(-damage);
+            }
+            print($"Explosion Damage:{damage}");
         }
 
         print("explosion");
@@ -46,11 +55,20 @@ public class Explosion : MonoBehaviour
         for (int i = 0; i < overlappedColiders.Length; i++)
         {
             Rigidbody rigitbody = overlappedColiders[i].attachedRigidbody;
-            if (rigitbody && !overlappedColiders[i].gameObject.CompareTag("Player"))
+            if (rigitbody == null)
             {
-                Vector3 distanceToTarget = new Vector3(transform.position.x - rigitbody.transform.position.x, transform.position.y - rigitbody.transform.position.y, transform.position.z - rigitbody.transform.position.z);
-                rigitbody.AddExplosionForce(noDamageExplosionForce, transform.position, noDamageExplosionRadius);
+                continue;
             }
+            if (rigitbody.CompareTag("Bullet"))
+            {
+                continue;
+            }
+            if (rigitbody.CompareTag("Player"))
+            {
+                continue;
+            }
+            Vector3 distanceToTarget = new Vector3(transform.position.x - rigitbody.transform.position.x, transform.position.y - rigitbody.transform.position.y, transform.position.z - rigitbody.transform.position.z);
+            rigitbody.AddExplosionForce(noDamageExplosionForce, transform.position, noDamageExplosionRadius);
         }
 
         /*Instantiate(explosionEffect, transform.position, Quaternion.identity);*/
@@ -61,20 +79,29 @@ public class Explosion : MonoBehaviour
         for (int i = 0; i < overlappedColiders.Length; i++)
         {
             Rigidbody rigitbody = overlappedColiders[i].attachedRigidbody;
-            if (rigitbody && !overlappedColiders[i].gameObject.CompareTag("Boss"))
+            if (rigitbody == null)
             {
-                rigitbody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
-                if (!rigitbody.gameObject.GetComponent<HealthControll>())
-                {
-                    continue;
-                }
-                else
-                {
-                    rigitbody.GetComponent<HealthControll>().ChangeHealth(-explosionDamage);
-                }
-                print($"Explosion Damage:{explosionDamage}");
+                continue;
             }
-        }
+            if (rigitbody.CompareTag("Bullet"))
+            {
+                continue;
+            }
+            if (rigitbody.CompareTag("Boss"))
+            {
+                continue;
+            }
+            rigitbody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+            if (!rigitbody.gameObject.GetComponent<HealthControll>())
+            {
+                continue;
+            }
+            else
+            {
+                rigitbody.GetComponent<HealthControll>().ChangeHealth(-explosionDamage);
+            }
+            print($"Explosion Damage:{explosionDamage}");
+    }
 
         print("explosion");
         /*Instantiate(explosionEffect, transform.position, Quaternion.identity);*/

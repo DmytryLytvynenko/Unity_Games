@@ -19,7 +19,10 @@ public class EnemyBigBoss : MonoBehaviour
     private float prepareTimer = 0f;
     private float waitTillTime;
     private Action currentAction;
-    private bool isGrounded;
+    private float chooseActionTimer = 0f;
+    [SerializeField] private float chooseActionTime;
+    private bool isGrounded;  
+
 
 
     [Header("Shoot")]
@@ -99,6 +102,12 @@ public class EnemyBigBoss : MonoBehaviour
         }
         if (currentAction != Action.None)
         {
+            //Если выбранное действие не сменялось долго, то оно сбрасывается(currentAction = Action.None) и в следующий раз выберется другое
+/*            if (chooseActionTimer >= chooseActionTime)
+            {
+                currentAction = Action.None;
+            }
+            chooseActionTimer += Time.deltaTime;*/
             return;
         }
         int randomDigit = Random.Range(1,4);
@@ -133,7 +142,8 @@ public class EnemyBigBoss : MonoBehaviour
 
         if (rb.velocity.magnitude < maxMoveSpeed)
         {
-            rb.AddForce(transform.forward * moveSpeed, ForceMode.Impulse);//метод передвижения 
+            Vector3 offset = transform.forward * moveSpeed * Time.deltaTime;
+            rb.MovePosition(rb.position + offset);//метод передвижения 
         }
     }
     private void ControllKickDistance()

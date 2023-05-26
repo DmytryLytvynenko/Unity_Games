@@ -7,7 +7,6 @@ public class ChasingEnemyController : MonoBehaviour
     public float moveSpeed;
     public float maxSpeed;
     public float rotationSpeed;
-    public float timeToLive;
     public int damage;
 
     private Rigidbody rb;
