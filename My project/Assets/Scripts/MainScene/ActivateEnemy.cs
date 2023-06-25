@@ -6,9 +6,9 @@ public class ActivateEnemy : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        if (gameObject.GetComponent<runningEnemyController>())
+        if (gameObject.GetComponent<RunningEnemyController>())
         {
-            gameObject.GetComponent<runningEnemyController>().enabled = true;
+            gameObject.GetComponent<RunningEnemyController>().enabled = true;
         }
 
         if (gameObject.GetComponent<ShootingEnemyController>())

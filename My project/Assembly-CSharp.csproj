@@ -66,12 +66,12 @@
     <Compile Include="Assets\Scripts\MainScene\HeroController.cs" />
     <Compile Include="Assets\Scripts\MainScene\Bullet.cs" />
     <Compile Include="Assets\Scripts\MainScene\Explosion.cs" />
-    <Compile Include="Assets\Scripts\MainScene\ShootingEnemyController.cs" />
+    <Compile Include="Assets\Scripts\MainScene\Enemies\ShootingEnemyController.cs" />
     <Compile Include="Assets\Scripts\MainScene\MobileController.cs" />
     <Compile Include="Assets\Scripts\MainScene\HealthBar.cs" />
     <Compile Include="Assets\Scripts\MainScene\HealthControll.cs" />
     <Compile Include="Assets\Scripts\MainScene\BombSpawn.cs" />
-    <Compile Include="Assets\Scripts\MainScene\runningEnemyController.cs" />
+    <Compile Include="Assets\Scripts\MainScene\Enemies\runningEnemyController.cs" />
     <Compile Include="Assets\Scripts\MainScene\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\MenuScene\FallingObject.cs" />
     <Compile Include="Assets\Scripts\MainScene\PlatformController.cs" />
@@ -80,9 +80,10 @@
     <Compile Include="Assets\Scripts\MainScene\RotatingWall.cs" />
     <Compile Include="Assets\Scripts\MainScene\CameraController.cs" />
     <Compile Include="Assets\Scripts\Scenes.cs" />
-    <Compile Include="Assets\Scripts\MainScene\ChasingEnemyController.cs" />
-    <Compile Include="Assets\Scripts\MainScene\EnemyBigBoss.cs" />
+    <Compile Include="Assets\Scripts\MainScene\Enemies\ChasingEnemyController.cs" />
+    <Compile Include="Assets\Scripts\MainScene\Enemies\EnemyBigBoss.cs" />
     <Compile Include="Assets\Scripts\MenuScene\ObjectSpawn.cs" />
+    <Compile Include="Assets\Scripts\MainScene\Enemies\Enemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
