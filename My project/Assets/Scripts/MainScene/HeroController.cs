@@ -24,17 +24,7 @@ public class HeroController : MonoBehaviour
     private Animator ch_animator;
     private Rigidbody rb;
     private Explosion explosion;
-    private Transform throwArea;
 
-    [Header("Throw variables")]
-    [SerializeField] private float xThrowSize;
-    [SerializeField] private float yThrowSize;
-    [SerializeField] private float zThrowSize;
-    [SerializeField] private float yThrowAngle;
-    [SerializeField] private float throwForce;
-    [SerializeField] private int throwDamage;
-
-    // Параметры геймплея
     private Vector3 moveVector// направление  передвижения
     {
         get
@@ -46,17 +36,14 @@ public class HeroController : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     private void Start()
     {
         explosion = GetComponent<Explosion>();
         rb = GetComponent<Rigidbody>();
         /*ch_animator = GetComponent<Animator>();*/
         mController = GameObject.FindGameObjectsWithTag("Joystick")[0].GetComponent<MobileController>();
-        throwArea = transform.GetChild(2).transform;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         SetCanExplode();
@@ -65,7 +52,6 @@ public class HeroController : MonoBehaviour
             Jump();
         }
         Move();
-        VisualizeBox.DisplayBox(throwArea.position, new Vector3(xThrowSize/2, yThrowSize/2, zThrowSize/2), throwArea.rotation);
     }
 
     private void Move()
@@ -96,7 +82,7 @@ public class HeroController : MonoBehaviour
             isGrounded = false;
         }
     }
-    public void Throw()
+/*    public void Throw()
     {
         Collider[] overlappedColiders = Physics.OverlapBox(throwArea.position, new Vector3(xThrowSize/2, yThrowSize/2, zThrowSize/2), throwArea.rotation);
         for (int i = 0; i < overlappedColiders.Length; i++)
@@ -122,7 +108,7 @@ public class HeroController : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
     private void SetCanExplode()
     {
         if (isGrounded)

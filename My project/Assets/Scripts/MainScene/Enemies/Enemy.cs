@@ -8,9 +8,9 @@ public class Enemy : MonoBehaviour
     protected Rigidbody rb;
     [SerializeField] protected int contactDamage;
 
-    protected float moveSpeed;
-    protected float maxSpeed;
-    protected float rotationSpeed;
+    [SerializeField] protected float moveSpeed;
+    [SerializeField] protected float maxSpeed;
+    [SerializeField] protected float rotationSpeed;
 
     protected Vector3 rotationVector// направление  передвижения
     {

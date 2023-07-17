@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{01581593-00CC-05E8-4BB5-DE9370206819}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -79,12 +78,13 @@
     <Compile Include="Assets\Scripts\MainScene\Bomb.cs" />
     <Compile Include="Assets\Scripts\MainScene\PauseGame.cs" />
     <Compile Include="Assets\Scripts\MainScene\RotatingWall.cs" />
+    <Compile Include="Assets\Scripts\MainScene\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\MainScene\CameraController.cs" />
     <Compile Include="Assets\Scripts\Scenes.cs" />
     <Compile Include="Assets\Scripts\MainScene\Enemies\ChasingEnemyController.cs" />
     <Compile Include="Assets\Scripts\MainScene\Enemies\EnemyBigBoss.cs" />
     <Compile Include="Assets\Scripts\MenuScene\ObjectSpawn.cs" />
-    <Compile Include="Assets\Scripts\MainScene\Enemies\Enemy.cs" />
+    <Compile Include="Assets\Scripts\MainScene\Throw.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -634,6 +634,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72479970}
   m_CullTransparentMesh: 1
+--- !u!1 &193696951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6836864531634666604, guid: eb349ddad09570e41a3c03cbe40fd477,
+    type: 3}
+  m_PrefabInstance: {fileID: 1371830414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &204539886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,7 +1534,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407926082}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0393ec12f9255a9488d5f08021b33b1f, type: 3}
   m_Name: 
@@ -2263,7 +2269,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1371830414}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 193696951}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e0ac1bcacc600b479a7d7d06ba274d7, type: 3}
@@ -3881,6 +3887,12 @@ Transform:
   m_Father: {fileID: 446726160}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1047057316 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8852483743064176647, guid: eb349ddad09570e41a3c03cbe40fd477,
+    type: 3}
+  m_PrefabInstance: {fileID: 1371830414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1102777207
 GameObject:
   m_ObjectHideFlags: 0
@@ -3967,9 +3979,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 618973946}
-        m_TargetAssemblyTypeName: HeroController, Assembly-CSharp
-        m_MethodName: Throw
+      - m_Target: {fileID: 1351357455}
+        m_TargetAssemblyTypeName: Throw, Assembly-CSharp
+        m_MethodName: AreaThrow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4338,6 +4350,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archarerdtgh
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1b030729fc6fae141a553b0aa124d949,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b030729fc6fae141a553b0aa124d949, type: 3}
 --- !u!114 &1351357449 stripped
@@ -4346,12 +4363,31 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1371830414}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 193696951}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad6a6e2d7d27c5749a255c7a66befa33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1351357455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193696951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c12c7c9dadfd36439c27aae42b3c1b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwArea: {fileID: 1047057316}
+  xThrowSize: 0.8
+  yThrowSize: -0.2
+  zThrowSize: 1
+  yThrowAngle: 1
+  throwForce: 25
+  throwDamage: 500
 --- !u!1 &1363010175
 GameObject:
   m_ObjectHideFlags: 0
@@ -4622,6 +4658,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4792738596926923209, guid: eb349ddad09570e41a3c03cbe40fd477,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6836864531634666598, guid: eb349ddad09570e41a3c03cbe40fd477,
         type: 3}
       propertyPath: m_RootOrder
